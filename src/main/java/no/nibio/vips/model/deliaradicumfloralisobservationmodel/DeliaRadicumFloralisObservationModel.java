@@ -20,6 +20,7 @@
 package no.nibio.vips.model.deliaradicumfloralisobservationmodel;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -45,6 +46,7 @@ import no.nibio.vips.model.ModelId;
 import no.nibio.vips.observation.Observation;
 import no.nibio.vips.observation.ObservationImpl;
 import no.nibio.vips.util.ModelUtil;
+import no.nibio.vips.util.WeatherUtil;
 
 /**
  * @copyright 2016 <a href="http://www.nibio.no/">NIBIO</a>
@@ -57,6 +59,7 @@ public class DeliaRadicumFloralisObservationModel extends I18nImpl implements Mo
     protected final static Integer DAMAGE_THRESHOLD_OLD_CROP = 40;
     protected final static Integer OLD_CROP_AGE_IN_DAYS = 28;
     private final ModelUtil modelUtil;
+    private final WeatherUtil weatherUtil;
     
     private ObjectMapper objectMapper;
     
@@ -70,6 +73,7 @@ public class DeliaRadicumFloralisObservationModel extends I18nImpl implements Mo
     {
         super("no.nibio.vips.model.deliaradicumfloralisobservationmodel.texts");
         this.modelUtil = new ModelUtil();
+        this.weatherUtil = new WeatherUtil();
     }
 
     @Override
@@ -248,7 +252,7 @@ public class DeliaRadicumFloralisObservationModel extends I18nImpl implements Mo
 
     @Override
     public void setConfiguration(ModelConfiguration config) throws ConfigValidationException {
-        
+        this.getObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         this.pestObservations = this.getObjectMapper().convertValue(config.getConfigParameter("pestObservations"), new TypeReference<List<ObservationImpl>>(){});
         if(this.pestObservations == null || this.pestObservations.isEmpty())
         {
@@ -307,7 +311,7 @@ public class DeliaRadicumFloralisObservationModel extends I18nImpl implements Mo
         Observation currentObservation = null;
         for(Observation obs:this.pestObservations)
         {
-            Long obsTime = obs.getTimeOfObservation().getTime();
+            Long obsTime = this.weatherUtil.normalizeToExactDate(obs.getTimeOfObservation(), timeZone).getTime();
             if( currentTime - obsTime >= 0 // Must be before the current date
                 && currentTime - obsTime < this.observationMaximumValidDays * (24 * 3600 * 1000) // Must be maximum [9] days before current date
                 && (currentObservation == null || currentTime - obsTime < currentTime - currentObservation.getTimeOfObservation().getTime()) // Must be closer to current date than any other observations
@@ -354,7 +358,7 @@ public class DeliaRadicumFloralisObservationModel extends I18nImpl implements Mo
     public Observation getObservationAtDate(Date currentDate) {
         for(Observation obs:this.pestObservations)
         {
-            if(obs.getTimeOfObservation().compareTo(currentDate) == 0)
+            if(this.weatherUtil.normalizeToExactDate(obs.getTimeOfObservation(), timeZone).compareTo(currentDate) == 0)
             {
                 return obs;
             }

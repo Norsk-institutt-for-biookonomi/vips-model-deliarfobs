@@ -96,10 +96,10 @@ public class DeliaRadicumFloralisObservationModelTest {
         List<Result> expResult = null;
         List<Result> result = instance.getResult();
         System.out.println("Number of results returned: " + result.size());
-        for(Result res:result)
+        /*for(Result res:result)
         {
             System.out.println(res);
-        }
+        }*/
         assertNotNull(result);
     }
 
@@ -238,8 +238,8 @@ public class DeliaRadicumFloralisObservationModelTest {
         obs1.setTimeOfObservation(format.parse("2016-04-20"));
         obs1.setObservationData("{\"counting01\":3,\"counting02\":2,\"counting03\":3,\"counting04\":4,\"counting05\":0,\"counting06\":0,\"counting07\":0,\"counting08\":0,\"counting09\":0,\"counting10\":0}");
         pestObservations.add(obs1);
-        ObjectMapper om = new ObjectMapper();
-        System.out.println(om.writeValueAsString(obs1));
+        /*ObjectMapper om = new ObjectMapper();
+        System.out.println(om.writeValueAsString(obs1));*/
         
         
         ObservationImpl obs2 = new ObservationImpl();
