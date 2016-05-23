@@ -43,6 +43,18 @@ public class DeliaRadicumFloralisObservationModelOldCrop extends DeliaRadicumFlo
     }
     
     @Override
+    public String getModelDescription(String language)
+    {
+        return this.getText("descriptionOldCrop", language);
+    }
+    
+    @Override
+    public String getWarningStatusInterpretation(String language)
+    {
+        return this.getText("statusInterpretationOldCrop", language);
+    }
+    
+    @Override
     protected Integer getEconomicThreshold(Date currentDate)
     {
         return 40;
