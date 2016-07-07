@@ -84,22 +84,29 @@ public class DeliaRadicumFloralisObservationModel extends I18nImpl implements Mo
         DecimalFormat dFormat = new DecimalFormat("###.##");
         
         Date currentDate = startDateGrowth;
+        boolean firstValidObservationFound = false;
         while(currentDate.compareTo(endDateCalculation) <= 0)
         {
             Result result = new ResultImpl();
             result.setResultValidTime(currentDate);
             
             Observation latestObs = getObservationValidForDate(currentDate);
-            if(latestObs == null)
+            if(latestObs == null && ! firstValidObservationFound)
+            {
+                result.setWarningStatus(Result.WARNING_STATUS_NO_WARNING);
+            }
+            else if(latestObs == null)
             {
                 result.setWarningStatus(Result.WARNING_STATUS_NO_WARNING_MISSING_DATA);
             }
             else if(this.getPestObservationValue(latestObs.getObservationData()) >= this.getEconomicThreshold(currentDate))
             {
+                firstValidObservationFound = true;
                 result.setWarningStatus(Result.WARNING_STATUS_HIGH_RISK);
             }
             else
             {
+                firstValidObservationFound = true;
                 result.setWarningStatus(Result.WARNING_STATUS_NO_RISK);
             }
             
