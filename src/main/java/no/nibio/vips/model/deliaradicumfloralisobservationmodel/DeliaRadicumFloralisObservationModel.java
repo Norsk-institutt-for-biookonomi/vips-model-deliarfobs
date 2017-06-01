@@ -261,10 +261,6 @@ public class DeliaRadicumFloralisObservationModel extends I18nImpl implements Mo
     public void setConfiguration(ModelConfiguration config) throws ConfigValidationException {
         this.getObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         this.pestObservations = this.getObjectMapper().convertValue(config.getConfigParameter("pestObservations"), new TypeReference<List<ObservationImpl>>(){});
-        if(this.pestObservations == null || this.pestObservations.isEmpty())
-        {
-            throw new ConfigValidationException("ERROR: No observations");
-        }
         Collections.sort(this.pestObservations);
         // Setting timezone
         this.timeZone = TimeZone.getTimeZone((String) config.getConfigParameter("timeZone"));
@@ -314,6 +310,10 @@ public class DeliaRadicumFloralisObservationModel extends I18nImpl implements Mo
     }
 
     public Observation getObservationValidForDate(Date currentDate) {
+        if(this.pestObservations == null || this.pestObservations.isEmpty())
+        {
+            return null;
+        }
         Long currentTime = currentDate.getTime();
         Observation currentObservation = null;
         for(Observation obs:this.pestObservations)
