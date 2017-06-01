@@ -363,6 +363,10 @@ public class DeliaRadicumFloralisObservationModel extends I18nImpl implements Mo
     }
 
     public Observation getObservationAtDate(Date currentDate) {
+        if(this.pestObservations == null || this.pestObservations.isEmpty())
+        {
+            return null;
+        }
         for(Observation obs:this.pestObservations)
         {
             if(this.weatherUtil.normalizeToExactDate(obs.getTimeOfObservation(), timeZone).compareTo(currentDate) == 0)
