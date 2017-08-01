@@ -339,15 +339,15 @@ public class DeliaRadicumFloralisObservationModel extends I18nImpl implements Mo
     {
         try
         {
-        Map<String, Double> data = this.getObjectMapper().readValue(new ByteArrayInputStream(observationData.getBytes("UTF-8")), new TypeReference<HashMap<String,Double>>() {});
-        Double sum = 0.0;
-        for(String key:data.keySet())
-        {
-            sum += data.get(key);
+            Map<String, Double> data = this.getObjectMapper().readValue(new ByteArrayInputStream(observationData.getBytes("UTF-8")), new TypeReference<HashMap<String,Double>>() {});
+            Double sum = 0.0;
+            for(String key:data.keySet())
+            {
+                sum += data.get(key);
+            }
+            return sum/data.size();
         }
-        return sum/data.size();
-        }
-        catch(IOException ex)
+        catch(IOException | NullPointerException ex)
         {
             return 0.0;
         }
