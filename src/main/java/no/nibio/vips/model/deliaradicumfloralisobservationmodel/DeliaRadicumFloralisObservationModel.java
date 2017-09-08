@@ -88,7 +88,7 @@ public class DeliaRadicumFloralisObservationModel extends I18nImpl implements Mo
         while(currentDate.compareTo(endDateCalculation) <= 0)
         {
             Result result = new ResultImpl();
-            result.setResultValidTime(currentDate);
+            result.setValidTimeStart(currentDate);
             
             Observation latestObs = getObservationValidForDate(currentDate);
             if(latestObs == null && ! firstValidObservationFound)
