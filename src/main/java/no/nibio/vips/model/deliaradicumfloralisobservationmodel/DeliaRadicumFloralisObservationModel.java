@@ -260,7 +260,7 @@ public class DeliaRadicumFloralisObservationModel extends I18nImpl implements Mo
     @Override
     public void setConfiguration(ModelConfiguration config) throws ConfigValidationException {
         this.getObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        this.pestObservations = this.getObjectMapper().convertValue(config.getConfigParameter("pestObservations"), new TypeReference<List<ObservationImpl>>(){});
+        this.pestObservations = this.getObjectMapper().convertValue(config.getConfigParameter("pestObservations"), new TypeReference<List<Observation>>(){});
         Collections.sort(this.pestObservations);
         // Setting timezone
         this.timeZone = TimeZone.getTimeZone((String) config.getConfigParameter("timeZone"));
