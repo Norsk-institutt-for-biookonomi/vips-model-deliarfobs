@@ -63,7 +63,7 @@ public class DeliaRadicumFloralisObservationModel extends I18nImpl implements Mo
     
     private ObjectMapper objectMapper;
     
-    private List<Observation> pestObservations;
+    private List<ObservationImpl> pestObservations;
     private TimeZone timeZone;
     private Date startDateGrowth;
     private Date endDateCalculation;
