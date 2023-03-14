@@ -220,38 +220,38 @@ public class DeliaRadicumFloralisObservationModel extends I18nImpl implements Mo
                 "\t\"configParameters\":{\n" +
                 "\t\t\"timeZone\":\"Europe/Oslo\",\n" +
                 "\t\t\"startDateGrowth\":\"2012-03-25\",\n" +
-                "\t\t\"endDateCalculation\":\"2012-03-25\",\n" +
+                "\t\t\"endDateCalculation\":\"2012-05-25\",\n" +
                 "\t\t\"pestObservations\":[\n" +
                 "\t\t\t{" +
-                "\t\t\t\t\"timeOfObservation\":\"2016-04-20T00:00:00+02:00\"," +
-                "\t\t\t\t\"observationData\":{" +
-                "\t\t\t\t\t\"counting01\":3," +
-                "\t\t\t\t\t\"counting02\":2," +
-                "\t\t\t\t\t\"counting03\":3," +
-                "\t\t\t\t\t\"counting04\":4," +
-                "\t\t\t\t\t\"counting05\":0," + 
-                "\t\t\t\t\t\"counting06\":0," +
-                "\t\t\t\t\t\"counting07\":0," +
-                "\t\t\t\t\t\"counting08\":0," +
-                "\t\t\t\t\t\"counting09\":0," +
-                "\t\t\t\t\t\"counting10\":0" +
-                "\t\t\t\t}" +
-                "\t\t\t\"}," +
-                "\t\t\t{" +
-                "\t\t\t\t\"timeOfObservation\":\"2016-04-25T00:00:00+02:00\"," +
-                "\t\t\t\t\"observationData\":{" +
-                "\t\t\t\t\t\"counting01\":30," +
-                "\t\t\t\t\t\"counting02\":18," +
-                "\t\t\t\t\t\"counting03\":13," +
-                "\t\t\t\t\t\"counting04\":14," +
-                "\t\t\t\t\t\"counting05\":25," + 
-                "\t\t\t\t\t\"counting06\":20," +
-                "\t\t\t\t\t\"counting07\":9," +
-                "\t\t\t\t\t\"counting08\":15," +
-                "\t\t\t\t\t\"counting09\":21," +
-                "\t\t\t\t\t\"counting10\":21" +
-                "\t\t\t\t}" +
-                "\t\t\t\"}" +
+                "\t\t\t\t\"timeOfObservation\":\"2012-04-20T00:00:00+02:00\",\n" +
+                "\t\t\t\t\"observationData\":{\n" +
+                "\t\t\t\t\t\"counting01\":3,\n" +
+                "\t\t\t\t\t\"counting02\":2,\n" +
+                "\t\t\t\t\t\"counting03\":3,\n" +
+                "\t\t\t\t\t\"counting04\":4,\n" +
+                "\t\t\t\t\t\"counting05\":0,\n" + 
+                "\t\t\t\t\t\"counting06\":0,\n" +
+                "\t\t\t\t\t\"counting07\":0,\n" +
+                "\t\t\t\t\t\"counting08\":0,\n" +
+                "\t\t\t\t\t\"counting09\":0,\n" +
+                "\t\t\t\t\t\"counting10\":0\n" +
+                "\t\t\t\t}\n" +
+                "\t\t\t\"},\n" +
+                "\t\t\t{\n" +
+                "\t\t\t\t\"timeOfObservation\":\"2012-04-25T00:00:00+02:00\"," +
+                "\t\t\t\t\"observationData\":{\n" +
+                "\t\t\t\t\t\"counting01\":30,\n" +
+                "\t\t\t\t\t\"counting02\":18,\n" +
+                "\t\t\t\t\t\"counting03\":13,\n" +
+                "\t\t\t\t\t\"counting04\":14,\n" +
+                "\t\t\t\t\t\"counting05\":25,\n" + 
+                "\t\t\t\t\t\"counting06\":20,\n" +
+                "\t\t\t\t\t\"counting07\":9,\n" +
+                "\t\t\t\t\t\"counting08\":15,\n" +
+                "\t\t\t\t\t\"counting09\":21,\n" +
+                "\t\t\t\t\t\"counting10\":21\n" +
+                "\t\t\t\t}\n" +
+                "\t\t\t\"}\n" +
                 "\t\t]\n" +
                 "\t}\n" +
                 "}\n";
