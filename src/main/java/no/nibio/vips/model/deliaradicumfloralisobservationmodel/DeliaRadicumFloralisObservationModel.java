@@ -222,7 +222,7 @@ public class DeliaRadicumFloralisObservationModel extends I18nImpl implements Mo
                 "\t\t\"startDateGrowth\":\"2012-03-25\",\n" +
                 "\t\t\"endDateCalculation\":\"2012-05-25\",\n" +
                 "\t\t\"pestObservations\":[\n" +
-                "\t\t\t{" +
+                "\t\t\t{\n" +
                 "\t\t\t\t\"timeOfObservation\":\"2012-04-20T00:00:00+02:00\",\n" +
                 "\t\t\t\t\"observationData\":{\n" +
                 "\t\t\t\t\t\"counting01\":3,\n" +
@@ -238,7 +238,7 @@ public class DeliaRadicumFloralisObservationModel extends I18nImpl implements Mo
                 "\t\t\t\t}\n" +
                 "\t\t\t\"},\n" +
                 "\t\t\t{\n" +
-                "\t\t\t\t\"timeOfObservation\":\"2012-04-25T00:00:00+02:00\"," +
+                "\t\t\t\t\"timeOfObservation\":\"2012-04-25T00:00:00+02:00\",\n" +
                 "\t\t\t\t\"observationData\":{\n" +
                 "\t\t\t\t\t\"counting01\":30,\n" +
                 "\t\t\t\t\t\"counting02\":18,\n" +
