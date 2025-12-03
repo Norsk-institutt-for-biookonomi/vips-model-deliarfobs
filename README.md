@@ -1,4 +1,5 @@
 # DeliaRadicumFloralisObservationModel
+&copy; [NIBIO](https://nibio.no/en)
 
 <p>The warning system model is based on weekly observations of oviposition by the brassica root flies [CITATION Bli991 \l 1044 ]. The model is based in its entirety on observations, with no input of weather data or weather forecasts. The model does not distinguish between the cabbage maggot and the turnip fly. The observations consist of collecting sand from the base of 10 plants and floating the eggs in water. The counts are registered in VIPS and the mean number of eggs is calculated. The observations are compared to damage thresholds [CITATION Bli99 \l 1044 ] and warnings are calculated.</p>
 <p>The damage thresholds are related to the plants developmental stage and tell how many eggs that can be on a plant before there will be a reduction in growth and yield. VIPS presents two warning system models based on damage thresholds: one for newly planted cabbage and one for cabbage that has been in the field more than 4 weeks. The model can also be set up as a private warning for the farmer&rsquo;s own field, in which case the model will vary between the two different damage thresholds based on the age of the cabbage crop (starting at the time of planting).</p>
@@ -27,7 +28,7 @@
 <p>Information about registration of oviposition by cabbage maggots and turnip flies: <a href="http://www.vips-landbruk.no/media/attachments/information/RegEggKalflue2016.pdf">http://www.vips-landbruk.no/media/attachments/information/RegEggKalflue2016.pdf</a></p>
 <p>Plantevernleksikonet:&nbsp;<a href="https://www.plantevernleksikonet.no/l/oppslag/338/" target="_blank">https://www.plantevernleksikonet.no/l/oppslag/338/</a></p>
 
-### Development
+## Development
 
 Clone Gitlab repository
 
@@ -35,3 +36,10 @@ Clone Gitlab repository
 $ git clone https://gitlab.nibio.no/VIPS/models/java/Model_DELIARFOBS.git
 $ cd Model_DELIARFOBS
 ```
+### Compile, run tests
+```bash
+mvn clean install
+```
+
+### Deploy to VIPSCore
+See [the VIPSCore README](https://gitlab.nibio.no/VIPS/VIPSCore)
